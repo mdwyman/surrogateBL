@@ -58,7 +58,7 @@ class beamline:
                 if (self.mask[i,j] == 1):
                     self.pos[i,j] = float(format(random.uniform(self.sRange[i,j,0],self.sRange[i,j,1])))
 #        self.adjust()
-        return
+        return self.pos
           
     
     def adjust(self):
