@@ -10,7 +10,7 @@
 - IEX_100k_04w.pkl
     - Pickle of Shadow3 simulated data from IEX_OO_Shadow_tests.ipynb
 - IEX_100k_04w_scaling.pkl
-    - Pickle of feature scaling used in IEX_surrogate_NN.ipynb
+    - Pickle of feature scaling used in IEX_OO_Shadow_tests.ipynb
 - IEX_100k_04w_NN_results.pkl
     - Pickle of models and results from IEX_surrogate_NN.ipynb
 
