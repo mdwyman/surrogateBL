@@ -294,9 +294,8 @@ class beamline:
         
         return
     
-    def run(self, iwrite = False, verbose = False):
-        self.resetBeamline()
-        
+    def run(self, iwrite = False, verbose = False, **kwargs):
+        self.resetBeamline()        
         self.beam.genSource(self.oe0)
 
         if iwrite:
@@ -313,7 +312,11 @@ class beamline:
                 self.oe[i].write("end."+'0'+str(i+1))
                 self.beam.write("star."+'0'+str(i+1))
 
-        return Shadow.Beam.nrays(self.beam, nolost=1)
+        if kwargs:
+            results = self.beam.histo2(1, 2, **kwargs)
+        else:
+            results = self.beam.nrays(nolost=1)
+        return results
     
 IEX = beamline(elements = 6)
 

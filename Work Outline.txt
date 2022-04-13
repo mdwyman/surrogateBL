@@ -1,0 +1,29 @@
+### Notebooks
+- IEX_OO_Shadowtests.ipynb 
+    - Tested out beamline_29.py (shadow-based simulation of 29ID)
+    - played with ranges of each DOF
+    - built data set for surrogate training
+- IEX_surrogate_NN.ipynb
+    - train and test NN on shadow generated data
+- IEX_shadow_vs_surrogate.ipynb
+    - test time usage of both beamlines --> surrogate ~ 1ms, shadow ~ 1s per "measurement"
+- GA_vs_beamline.ipynb
+    - goal: to test out simple genetic algorithm to find _optimal_ beamline configuration
+    - Starting populations of 10, ... generations 
+    - Finding that GA finds solution pretty quickly but many disparate solutions exist for peak intensity
+    - >>> go back to beamline_29.py and add other "diagnostics" e.g. beam dimensions, beam position, beam image
+    
+    
+Test environment
+- EPICS IOC (100idWYM)
+    - 16 axes of simulated motors
+    - Simulated area detector
+    - basic calcs using motors to move "beam" around on simulated detector
+- Bluesky implementation __in progress__
+    - motor definitions (tied to 100idWYM)
+    - Tie simulated detector to beamline model (shadow or surrogate)
+    - Use to develop "plans" for "optimizing" beamline
+    
+Needs/TODO
+    - Smarter ranges for motors (describe prior work by Trent)
+    - Move to multi-objective? nrays not best approach --> beam position + FWHM + intensity?
